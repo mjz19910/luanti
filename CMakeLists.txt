@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
+cmake_policy(SET CMP0177 NEW)
 
 # This can be read from ${PROJECT_NAME} after project() is called
 project(luanti)
