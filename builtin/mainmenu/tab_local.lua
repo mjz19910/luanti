@@ -106,6 +106,9 @@ function singleplayer_refresh_gamebar()
 			game_buttonbar_button_handler)
 
 	for _, game in ipairs(pkgmgr.games) do
+		if game.id == "devtest" then
+			goto continue
+		end
 		local btn_name = "game_btnbar_" .. game.id
 
 		local image = nil
@@ -125,6 +128,7 @@ function singleplayer_refresh_gamebar()
 			end
 		end
 		btnbar:add_button(btn_name, text, image, tooltip)
+		::continue::
 	end
 
 	local plus_image = core.formspec_escape(defaulttexturedir .. "plus.png")
