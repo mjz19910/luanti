@@ -373,7 +373,7 @@ end
 local shown_contexts = {
 	common = true,
 	client = true,
-	server = INIT ~= "pause_menu" or core.is_internal_server(),
+	server = INIT ~= "pause_menu" or core.is_internal_server and core.is_internal_server(),
 	world_creation = INIT ~= "pause_menu",
 }
 
