@@ -511,7 +511,7 @@ collisionMoveResult collisionMoveSimple(Environment *env, IGameDef *gamedef,
 			stepbox.MaxEdge.Z += aspeed_f.Z * extra_dtime;
 			// Check for stairs.
 			step_up = (movingbox.MinEdge.Y < cbox.MaxEdge.Y) &&
-				(movingbox.MinEdge.Y + stepheight > cbox.MaxEdge.Y) &&
+				(movingbox.MinEdge.Y + stepheight >= cbox.MaxEdge.Y) &&
 				(!wouldCollideWithCeiling(cinfo, stepbox,
 						cbox.MaxEdge.Y - movingbox.MinEdge.Y,
 						d));
