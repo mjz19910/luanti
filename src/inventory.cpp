@@ -353,7 +353,7 @@ const ToolCapabilities& ItemStack::getToolCapabilities(const IItemDefManager *it
 
 	item_cap = itemdef->get("").tool_capabilities;
 	assert(item_cap);
-	return *item_cap;
+	return metadata.getToolCapabilities(*item_cap);
 }
 
 bool ItemStack::itemFits(ItemStack newitem,
