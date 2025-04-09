@@ -629,6 +629,7 @@ if(BUILD_CLIENT)
 		add_library(${PROJECT_NAME} SHARED)
 	else()
 		add_executable(${PROJECT_NAME})
+		set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${PROJECT_NAME}-dev")
 	endif()
 
 
