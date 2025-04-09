@@ -336,6 +336,26 @@ ItemStack ItemStack::addItem(ItemStack newitem, IItemDefManager *itemdef)
 	return newitem;
 }
 
+const ToolCapabilities& ItemStack::getToolCapabilities(const IItemDefManager *itemdef, const ItemStack *hand) const {
+	const ToolCapabilities *item_cap = itemdef->get(name).tool_capabilities;
+
+	if (item_cap) {
+		return metadata.getToolCapabilities(*item_cap); // Check for override
+	}
+
+	// Fall back to the hand's tool capabilities
+	if (hand) {
+		item_cap = itemdef->get(hand->name).tool_capabilities;
+		if (item_cap) {
+			return hand->metadata.getToolCapabilities(*item_cap);
+		}
+	}
+
+	item_cap = itemdef->get("").tool_capabilities;
+	assert(item_cap);
+	return *item_cap;
+}
+
 bool ItemStack::itemFits(ItemStack newitem,
 		ItemStack *restitem,
 		IItemDefManager *itemdef) const
