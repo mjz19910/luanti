@@ -347,7 +347,7 @@ const ToolCapabilities& ItemStack::getToolCapabilities(const IItemDefManager *it
 	if (hand) {
 		item_cap = itemdef->get(hand->name).tool_capabilities;
 		if (item_cap) {
-			return hand->metadata.getToolCapabilities(*item_cap);
+			return metadata.getToolCapabilities(*item_cap);
 		}
 	}
 
