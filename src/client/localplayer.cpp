@@ -164,7 +164,20 @@ bool LocalPlayer::updateSneakNode(Map *map, const v3f &position,
 				ceilf((m_collisionbox.MaxEdge.Y - m_collisionbox.MinEdge.Y) / BS);
 			for (u16 y = 1; y <= height; y++) {
 				node = map->getNode(p + v3s16(0, y, 0), &is_valid_position);
-				if (!is_valid_position || nodemgr->get(node).walkable) {
+				if(!is_valid_position) {
+					ok = false;
+					break;
+				}
+				std::vector<aabb3f> nodeboxes;
+				node.getCollisionBoxes(nodemgr, &nodeboxes);
+				if(nodemgr->get(node).walkable) {
+					auto node_bb = getNodeBoundingBox(nodeboxes);
+					tracestream << "bb.Max=" << node_bb.MinEdge << " " << m_collisionbox.MinEdge << std::endl;
+					auto bb_max = node_bb.MaxEdge;
+					auto cbox_max = m_collisionbox.MaxEdge;
+					if(bb_max.X < cbox_max.X && bb_max.Z < cbox_max.Z) {
+						continue;
+					}
 					ok = false;
 					break;
 				}
@@ -176,6 +189,11 @@ bool LocalPlayer::updateSneakNode(Map *map, const v3f &position,
 		}
 		if (!ok)
 			continue;
+
+		if (m_sneak_node != p) {
+			const v3f v3_diff(position.X - pf.X, position.Y - pf.Y, position.Z - pf.Z);
+			tracestream << "new sneak info: sneak_node=" << p << " distance=" << v3_diff / 10 << std::endl;
+		}
 
 		min_distance_sq = distance_sq;
 		m_sneak_node = p;
