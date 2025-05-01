@@ -25,6 +25,9 @@
         "tools"
       ]
     },
-    "sdl2"
+    "sdl2",
+    "openssl",
+    "leveldb",
+    "libpq"
   ]
 }
