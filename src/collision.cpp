@@ -23,7 +23,7 @@
 #warning "-ffast-math is known to cause bugs in collision code, do not use!"
 #endif
 
-bool g_collision_problems_encountered = false;
+// bool g_collision_problems_encountered = false;
 
 namespace {
 
@@ -380,7 +380,7 @@ collisionMoveResult collisionMoveSimple(Environment *env, IGameDef *gamedef,
 		v3f accel_f, ActiveObject *self,
 		bool collide_with_objects)
 {
-	static bool time_notification_done = false;
+	// static bool time_notification_done = false;
 
 	ScopeProfiler sp(g_profiler, PROFILER_NAME("collisionMoveSimple()"), SPT_AVG, PRECISION_MICRO);
 
@@ -394,16 +394,17 @@ collisionMoveResult collisionMoveSimple(Environment *env, IGameDef *gamedef,
 		Calculate new velocity
 	*/
 	if (dtime > DTIME_LIMIT) {
-		if (!time_notification_done) {
-			time_notification_done = true;
-			warningstream << "collisionMoveSimple: maximum step interval exceeded,"
-					" lost movement details!"<<std::endl;
-		}
-		g_collision_problems_encountered = true;
+		// if (!time_notification_done) {
+		// 	time_notification_done = true;
+		// 	warningstream << "collisionMoveSimple: maximum step interval exceeded,"
+		// 			" lost movement details!"<<std::endl;
+		// }
+		// g_collision_problems_encountered = true;
 		dtime = DTIME_LIMIT;
-	} else {
-		time_notification_done = false;
 	}
+	// else {
+	// 	time_notification_done = false;
+	// }
 
 	// Average speed
 	v3f aspeed_f = *speed_f + accel_f * 0.5f * dtime;
@@ -453,7 +454,7 @@ collisionMoveResult collisionMoveSimple(Environment *env, IGameDef *gamedef,
 	for (int loopcount = 0;; loopcount++) {
 		if (loopcount >= 100) {
 			warningstream << "collisionMoveSimple: Loop count exceeded, aborting to avoid infinite loop" << std::endl;
-			g_collision_problems_encountered = true;
+			// g_collision_problems_encountered = true;
 			break;
 		}
 

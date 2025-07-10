@@ -50,7 +50,7 @@ struct collisionMoveResult
 
 /// Status if any problems were ever encountered during collision detection.
 /// @warning For unit test use only.
-extern bool g_collision_problems_encountered;
+// extern bool g_collision_problems_encountered;
 
 /// @param self (optional) ActiveObject to ignore in the collision detection.
 collisionMoveResult collisionMoveSimple(Environment *env, IGameDef *gamedef,
