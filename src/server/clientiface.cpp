@@ -392,7 +392,7 @@ queue_full_break:
 	} else {
 		if (d > full_d_max) {
 			new_nearest_unsent_d = 0;
-			m_nothing_to_send_pause_timer = 2.0f;
+			m_nothing_to_send_pause_timer = 60.0f;
 			infostream << "Server: Player " << m_name << ", peer_id=" << peer_id
 				<< ": full map send (d=" << d << ") completed after "
 				<< m_map_send_completion_timer << "s, restarting" << std::endl;

@@ -578,8 +578,8 @@ void GenericCAO::addToScene(ITextureSource *tsrc, scene::ISceneManager *smgr)
 	if (!m_prop.is_visible)
 		return;
 
-	infostream << "GenericCAO::addToScene(): " <<
-		enum_to_string(es_ObjectVisual, m_prop.visual)<< std::endl;
+	// infostream << "GenericCAO::addToScene(): " <<
+	// 	enum_to_string(es_ObjectVisual, m_prop.visual)<< std::endl;
 
 	auto updateMaterialType = [this](bool hw_skin) {
 		if (m_prop.visual != OBJECTVISUAL_NODE &&
@@ -741,7 +741,7 @@ void GenericCAO::addToScene(ITextureSource *tsrc, scene::ISceneManager *smgr)
 				item = ItemStack(m_prop.textures[0], 1, 0, idef);
 			}
 		} else {
-			infostream << "serialized form: " << m_prop.wield_item << std::endl;
+			// infostream << "serialized form: " << m_prop.wield_item << std::endl;
 			item.deSerialize(m_prop.wield_item, m_client->idef());
 		}
 		m_wield_meshnode = new WieldMeshSceneNode(m_smgr, -1);

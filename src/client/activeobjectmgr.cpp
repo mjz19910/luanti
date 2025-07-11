@@ -51,8 +51,8 @@ bool ActiveObjectMgr::registerObject(std::unique_ptr<ClientActiveObject> obj)
 				<< "id is not free (" << obj->getId() << ")" << std::endl;
 		return false;
 	}
-	infostream << "Client::ActiveObjectMgr::registerObject(): "
-			<< "added (id=" << obj->getId() << ")" << std::endl;
+	// infostream << "Client::ActiveObjectMgr::registerObject(): "
+	// 		<< "added (id=" << obj->getId() << ")" << std::endl;
 	m_active_objects.put(obj->getId(), std::move(obj));
 	return true;
 }

@@ -137,8 +137,8 @@ std::shared_ptr<PlayingSound> OpenALSoundManager::createPlayingSound(
 		const std::string &sound_name, bool loop, f32 volume, f32 pitch,
 		f32 start_time, const std::optional<std::pair<v3f, v3f>> &pos_vel_opt)
 {
-	infostream << "OpenALSoundManager: Creating playing sound \"" << sound_name
-			<< "\"" << std::endl;
+	// infostream << "OpenALSoundManager: Creating playing sound \"" << sound_name
+	// 		<< "\"" << std::endl;
 	warn_if_al_error("before createPlayingSound");
 
 	std::shared_ptr<ISoundDataOpen> lsnd = openSingleSound(sound_name);

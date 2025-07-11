@@ -63,8 +63,8 @@ ItemVisualsManager::ItemVisuals *ItemVisualsManager::createItemVisuals( const It
 	if (it != m_cached_item_visuals.end())
 		return it->second.get();
 
-	infostream << "Lazily creating item texture and mesh for \""
-			<< cache_key << "\"" << std::endl;
+	// infostream << "Lazily creating item texture and mesh for \""
+	// 		<< cache_key << "\"" << std::endl;
 
 	ITextureSource *tsrc = client->getTextureSource();
 

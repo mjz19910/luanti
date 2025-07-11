@@ -65,12 +65,12 @@ LuaEntitySAO::LuaEntitySAO(ServerEnvironment *env, v3f pos, const std::string &d
 		break;
 	}
 	// create object
-	infostream << "LuaEntitySAO(name=\"" << name << "\" state is ";
-	if (state.empty())
-		infostream << "empty";
-	else
-		infostream << state.size() << " bytes";
-	infostream << ")" << std::endl;
+	// infostream << "LuaEntitySAO(name=\"" << name << "\" state is ";
+	// if (state.empty())
+	// 	infostream << "empty";
+	// else
+	// 	infostream << state.size() << " bytes";
+	// infostream << ")" << std::endl;
 
 	m_init_name = name;
 	m_init_state = state;
