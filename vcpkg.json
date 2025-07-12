@@ -28,6 +28,7 @@
     "sdl2",
     "openssl",
     "leveldb",
-    "libpq"
+    "libpq",
+    "hiredis"
   ]
 }
