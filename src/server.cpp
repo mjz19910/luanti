@@ -2628,6 +2628,16 @@ bool Server::addMediaFile(const std::string &filename,
 				<< filename << "\"" << std::endl;
 		return false;
 	}
+	// If name is in a blacklisted format, ignore it
+	const char *ignore_ext[] = {
+		".txt", ".pot",
+		".blend",
+		".bat",
+		NULL
+	};
+	if (!removeStringEnd(filename, ignore_ext).empty()) {
+		return false;
+	}
 
 	// If name is not in a supported format, ignore it
 	const char *supported_ext[] = {
