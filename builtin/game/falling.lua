@@ -226,7 +226,7 @@ core.register_entity(":__builtin:falling_node", {
 				core.get_meta(np):from_table(self.meta)
 			end
 			if def.sounds and def.sounds.place then
-				core.sound_play(def.sounds.place, {pos = np}, true)
+				-- core.sound_play(def.sounds.place, {pos = np}, true)
 			end
 		end
 		core.check_for_falling(np)
