@@ -878,16 +878,16 @@ if(USE_LUAJIT)
 	# after the changes which we care about so that works as an indicator.
 	# (https://github.com/LuaJIT/LuaJIT/commit/4c6b669 March 2021)
 	# Note: This is no longer true as of August 2023, but we're keeping the old check.
-	unset(HAVE_RECENT_LJ CACHE)
-	check_symbol_exists(luaopen_string_buffer "lualib.h" HAVE_RECENT_LJ)
-	if(NOT HAVE_RECENT_LJ)
-		string(CONCAT explanation_msg
-			"You are using a relatively old version of LuaJIT. We recommend "
-			"running a recent version (from git) as older ones are known not "
-			"to build/work correctly in all cases.\n"
-			"THIS APPLIES ESPECIALLY ON macOS OR Linux/aarch64!")
-		message(WARNING ${explanation_msg})
-	endif()
+	# unset(HAVE_RECENT_LJ CACHE)
+	# check_symbol_exists(luaopen_string_buffer "lualib.h" HAVE_RECENT_LJ)
+	# if(NOT HAVE_RECENT_LJ)
+	# 	string(CONCAT explanation_msg
+	# 		"You are using a relatively old version of LuaJIT. We recommend "
+	# 		"running a recent version (from git) as older ones are known not "
+	# 		"to build/work correctly in all cases.\n"
+	# 		"THIS APPLIES ESPECIALLY ON macOS OR Linux/aarch64!")
+	# 	message(WARNING ${explanation_msg})
+	# endif()
 elseif(NOT MSVC)
 	set(CMAKE_REQUIRED_LIBRARIES "")
 	unset(HAVE_ATCCALL CACHE)
