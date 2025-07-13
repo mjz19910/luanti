@@ -139,3 +139,13 @@ lib/irrlichtmt
 
 # Generated mod storage database
 client/mod_storage.sqlite
+
+# node javascript runtime
+node_modules
+package.json
+package-lock.json
+tsconfig.json
+
+# deno ignore
+deno.json
+deno.lock
