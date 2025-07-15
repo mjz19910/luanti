@@ -41,7 +41,7 @@
 */
 
 // Limit maximum dtime in client/server step(...) and for collision detection
-#define DTIME_LIMIT 0.05f
+#define DTIME_LIMIT 4.0f
 
 /*
     Map-related things
