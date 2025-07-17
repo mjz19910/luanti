@@ -1708,7 +1708,7 @@ int ObjectRef::l_get_player_control_bits(lua_State *L)
 	const auto &c = player->getPlayerControl();
 
 	// This is very close to PlayerControl::getKeysPressed() but duplicated
-	// here so the encoding in the API is not inadvertedly changed.
+	// here so the encoding in the API is not inadvertently changed.
 	u32 keypress_bits =
 		c.direction_keys |
 		( (u32)(c.jump  & 1) << 4) |
