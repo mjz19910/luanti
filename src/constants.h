@@ -68,7 +68,7 @@
 
 // Arbitrary volume limit for working with contiguous areas (in nodes)
 // needs to safely fit in the VoxelArea class; used by e.g. VManips
-#define MAX_WORKING_VOLUME 150000000UL
+#define MAX_WORKING_VOLUME 160000000UL
 
 /*
     Old stuff that shouldn't be hardcoded
