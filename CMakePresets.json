@@ -10,32 +10,40 @@
       "displayName": "Debug",
       "description": "Debug preset with debug symbols and no optimizations",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
-      }
+        "CMAKE_BUILD_TYPE": "Debug",
+        "ENABLE_CURSES": "OFF"
+      },
+      "toolchainFile": "D:/vcpkg/scripts/buildsystems/vcpkg.cmake"
     },
     {
       "name": "Release",
       "displayName": "Release",
       "description": "Release preset with optimizations and no debug symbols",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Release"
-      }
+        "CMAKE_BUILD_TYPE": "Release",
+        "ENABLE_CURSES": "OFF"
+      },
+      "toolchainFile": "D:/vcpkg/scripts/buildsystems/vcpkg.cmake"
     },
     {
       "name": "RelWithDebInfo",
       "displayName": "RelWithDebInfo",
       "description": "Release with debug symbols",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
-      }
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "ENABLE_CURSES": "OFF"
+      },
+      "toolchainFile": "D:/vcpkg/scripts/buildsystems/vcpkg.cmake"
     },
     {
       "name": "MinSizeRel",
       "displayName": "MinSizeRel",
       "description": "Release with minimal code size",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "MinSizeRel"
-      }
+        "CMAKE_BUILD_TYPE": "MinSizeRel",
+        "ENABLE_CURSES": "OFF"
+      },
+      "toolchainFile": "D:/vcpkg/scripts/buildsystems/vcpkg.cmake"
     }
   ],
   "buildPresets": [
