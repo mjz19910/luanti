@@ -848,7 +848,7 @@ int ScriptApiSecurity::sl_g_dofile(lua_State *L)
 	int top_precall = lua_gettop(L);
 	lua_call(L, 0, LUA_MULTRET);
 	// Return number of arguments returned by the function,
-	// adjusting for the function being poped.
+	// adjusting for the function being popped.
 	return lua_gettop(L) - (top_precall - 1);
 }
 
@@ -1034,7 +1034,7 @@ int ScriptApiSecurity::sl_io_lines(lua_State *L)
 	lua_pushvalue(L, 1);
 	lua_call(L, 1, LUA_MULTRET);
 	// Return number of arguments returned by the function,
-	// adjusting for the function being poped.
+	// adjusting for the function being popped.
 	return lua_gettop(L) - top_precall;
 }
 

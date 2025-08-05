@@ -169,7 +169,7 @@ int ModApiClient::l_get_node_or_nil(lua_State *L)
 	return 1;
 }
 
-// get_langauge()
+// get_language()
 int ModApiClient::l_get_language(lua_State *L)
 {
 #ifdef _WIN32

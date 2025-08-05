@@ -464,7 +464,7 @@ int ModApiUtil::l_cpdir(lua_State *L)
 	return 1;
 }
 
-// mpdir(source, destination)
+// mvdir(source, destination)
 int ModApiUtil::l_mvdir(lua_State *L)
 {
 	NO_MAP_LOCK_REQUIRED;
