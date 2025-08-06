@@ -288,7 +288,7 @@ if(WIN32)
 	# Windows
 	if(MSVC) # MSVC Specifics
 		list(APPEND PLATFORM_LIBS dbghelp.lib)
-		# Surpress some useless warnings
+		# Suppress some useless warnings
 		add_compile_options(/W1)
 		add_compile_definitions(
 			# Suppress some useless warnings
