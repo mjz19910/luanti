@@ -377,7 +377,7 @@ do
 		"Node position (above surface) Z")
 	local f_pointed_object_id = ProtoField.int16(abbr.."pointed_object_id",
 		"Object ID")
-	-- mising: additional playerpos data just like in TOSERVER_PLAYERPOS
+	-- missing: additional playerpos data just like in TOSERVER_PLAYERPOS
 
 	minetest_client_commands[0x39] = {
 		"INTERACT", 11,
