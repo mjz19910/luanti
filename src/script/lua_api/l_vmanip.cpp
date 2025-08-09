@@ -96,7 +96,7 @@ int LuaVoxelManip::l_get_data(lua_State *L)
 		lua_createtable(L, volume, 0);
 
 	for (u32 i = 0; i != volume; i++) {
-		// Do not push unintialized data to Lua
+		// Do not push uninitialized data to Lua
 		lua_Integer cid = (vm->m_flags[i] & VOXELFLAG_NO_DATA) ? CONTENT_IGNORE : vm->m_data[i].getContent();
 		lua_pushinteger(L, cid);
 		lua_rawseti(L, -2, i + 1);
@@ -263,7 +263,7 @@ int LuaVoxelManip::l_get_light_data(lua_State *L)
 		lua_createtable(L, volume, 0);
 
 	for (u32 i = 0; i != volume; i++) {
-		// Do not push unintialized data to Lua
+		// Do not push uninitialized data to Lua
 		lua_Integer light = (vm->m_flags[i] & VOXELFLAG_NO_DATA) ? 0 : vm->m_data[i].getParam1();
 		lua_pushinteger(L, light);
 		lua_rawseti(L, -2, i + 1);
@@ -312,7 +312,7 @@ int LuaVoxelManip::l_get_param2_data(lua_State *L)
 		lua_createtable(L, volume, 0);
 
 	for (u32 i = 0; i != volume; i++) {
-		// Do not push unintialized data to Lua
+		// Do not push uninitialized data to Lua
 		lua_Integer param2 = (vm->m_flags[i] & VOXELFLAG_NO_DATA) ? 0 : vm->m_data[i].getParam2();
 		lua_pushinteger(L, param2);
 		lua_rawseti(L, -2, i + 1);
