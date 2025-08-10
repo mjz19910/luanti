@@ -867,7 +867,7 @@
 #    type: enum values: 0, 1, 2
 # shadow_filters = 1
 
-#    Enable colored shadows for transculent nodes.
+#    Enable colored shadows for translucent nodes.
 #    This is expensive.
 #    type: bool
 # shadow_map_color = false
