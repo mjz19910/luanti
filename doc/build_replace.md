@@ -4,3 +4,5 @@ replace with: $1\n      <MultiProcessorCompilation>true</MultiProcessorCompilati
 
 to find release build config for c/c++
 search for: (?<=<ItemDefinitionGroup Condition="'\$\(Configuration\)\|\$\(Platform\)'==')Release(?=\|x64'">\n\s+<ClCompile>)
+
+include build dir: *.vcxproj, ./out/build/Release/
