@@ -900,10 +900,12 @@ void ICraftAction::apply(InventoryManager *mgr,
 	ItemStack crafted;
 	ItemStack craftresultitem;
 	int count_remaining = count;
+	int num_crafted = 0;
 	std::vector<ItemStack> output_replacements;
 	getCraftingResult(inv_craft, crafted, output_replacements, false, gamedef);
 	PLAYER_TO_SA(player)->item_CraftPredict(crafted, player, list_craft, craft_inv);
 	bool found = !crafted.empty();
+	auto crafted_str = found ? std::optional(std::move(crafted.getItemString())) : std::nullopt;
 
 	while (found && list_craftresult->itemFits(0, crafted)) {
 		InventoryList saved_craft_list = *list_craft;
@@ -928,10 +930,7 @@ void ICraftAction::apply(InventoryManager *mgr,
 			output_replacements.push_back(itemstack);
 		}
 
-		actionstream << player->getDescription()
-				<< " crafts "
-				<< crafted.getItemString()
-				<< std::endl;
+		++num_crafted;
 
 		// Decrement counter
 		if (count_remaining == 1)
@@ -944,6 +943,16 @@ void ICraftAction::apply(InventoryManager *mgr,
 		getCraftingResult(inv_craft, crafted, temp, false, gamedef);
 		PLAYER_TO_SA(player)->item_CraftPredict(crafted, player, list_craft, craft_inv);
 		found = !crafted.empty();
+	}
+
+	if (num_crafted > 0 ) {
+		actionstream << player->getDescription()
+				<< " crafts "
+				<< crafted_str.value()
+				<< " "
+				<< num_crafted
+				<< std::endl;
+		crafted_str.reset();
 	}
 
 	// Put the replacements in the inventory or drop them on the floor, if
