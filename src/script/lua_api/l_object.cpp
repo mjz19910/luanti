@@ -2825,6 +2825,31 @@ int ObjectRef::l_get_flags(lua_State *L)
 	return 1;
 }
 
+// ObjectRef:set_mapgen_disabled(bool)
+int ObjectRef::l_set_mapgen_disabled(lua_State *L) {
+	NO_MAP_LOCK_REQUIRED;
+	ObjectRef *ref = checkObject<ObjectRef>(L, 1);
+	auto *psao = getplayersao(ref);
+	if (psao == nullptr)
+		return 0;
+
+	bool disable = lua_toboolean(L, 2);
+	psao->getPlayer()->disable_mapgen = disable;
+	return 0;
+}
+
+// ObjectRef:get_mapgen_disabled()
+int ObjectRef::l_get_mapgen_disabled(lua_State *L) {
+	NO_MAP_LOCK_REQUIRED;
+	ObjectRef *ref = checkObject<ObjectRef>(L, 1);
+	auto *psao = getplayersao(ref);
+	if (!psao) {
+		lua_pushboolean(L, false);
+		return 1;
+	}
+	lua_pushboolean(L, psao->getPlayer()->disable_mapgen);
+	return 1;
+}
 
 ObjectRef::ObjectRef(ServerActiveObject *object):
 	m_object(object)
@@ -2983,6 +3008,10 @@ luaL_Reg ObjectRef::methods[] = {
 	luamethod(ObjectRef, get_flags),
 	luamethod(ObjectRef, set_camera),
 	luamethod(ObjectRef, get_camera),
+
+	// Added in this fork
+	luamethod(ObjectRef, set_mapgen_disabled),
+	luamethod(ObjectRef, get_mapgen_disabled),
 
 	{0,0}
 };

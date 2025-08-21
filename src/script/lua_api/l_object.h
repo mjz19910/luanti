@@ -417,4 +417,10 @@ private:
 
 	// get_flags(self)
 	static int l_get_flags(lua_State *L);
+
+	// get_mapgen_disabled(bool)
+	static int l_get_mapgen_disabled(lua_State *L);
+
+	// set_mapgen_disabled(bool)
+	static int l_set_mapgen_disabled(lua_State *L);
 };

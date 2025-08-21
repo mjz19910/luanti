@@ -228,6 +228,9 @@ public:
 	// Get actual usable number of hotbar items (clamped to size of "main" list)
 	u16 getMaxHotbarItemcount();
 
+	// mapgen disable flag (spectators don't generate chunks!)
+	bool disable_mapgen = false;
+
 protected:
 	std::string m_name;
 	v3f m_speed; // velocity; in BS-space

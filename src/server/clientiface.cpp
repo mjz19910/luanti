@@ -282,6 +282,9 @@ void RemoteClient::GetNextBlocks (
 			// If this is true, inexistent block will be made from scratch
 			bool generate = d <= d_max_gen;
 
+			if (env->getPlayer(peer_id)->disable_mapgen)
+				generate = false;
+
 			/*
 				Don't generate or send if not in sight
 				FIXME This only works if the client uses a small enough
