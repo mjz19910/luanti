@@ -92,9 +92,15 @@ void ActiveBlockList::update(std::vector<PlayerSAO*> &active_players,
 	*/
 	std::set<v3s16> newlist = m_forceloaded_list;
 	std::set<v3s16> extralist;
-	for (const PlayerSAO *playersao : active_players) {
+	for (PlayerSAO *playersao : active_players) {
 		v3s16 pos = getNodeBlockPos(floatToInt(playersao->getBasePosition(), BS));
-		fillRadiusBlock(pos, active_block_range, newlist);
+
+		Player *player = playersao->getPlayer();
+		if (player && player->disable_mapgen) {
+			fillRadiusBlock(pos, active_block_range, extralist);
+		} else {
+			fillRadiusBlock(pos, active_block_range, newlist);
+		}
 
 		s16 player_ao_range = std::min(active_object_range, playersao->getWantedRange());
 		// only do this if this would add blocks
