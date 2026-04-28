@@ -222,6 +222,11 @@ void TestCollision::testCollisionMoveSimple(IGameDef *gamedef)
 				&pos, &speed, accel, NULL, true, StepUpMode::LEGACY);
 	};
 
+	const auto collide = [&](f32 dtime) {
+			return collisionMoveSimple(env.get(), gamedef, box, 0.0f, dtime,
+				&pos, &speed, accel, NULL, true, StepUpMode::LEGACY);
+	};
+
 	/* simple movement with accel */
 	pos   = fpos(4, 1, 4);
 	speed = fpos(0, 0, 0);
