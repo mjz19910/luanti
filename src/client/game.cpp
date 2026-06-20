@@ -384,7 +384,6 @@ Game::Game() :
 		"repeat_place_time", "repeat_dig_time", "noclip", "free_move", "fog_start",
 		"cinematic", "cinematic_camera_smoothing", "camera_smoothing", "invert_mouse",
 		"enable_hotbar_mouse_wheel", "invert_hotbar_mouse_wheel", "pause_on_lost_focus",
-		"keyboard_camera_speed",
 	};
 	for (auto s : settings)
 		g_settings->registerChangedCallback(s, &settingChangedCallback, this);
@@ -2031,16 +2030,16 @@ void Game::updateCameraOrientation(CameraOrientation *cam, float dtime)
 		cam->camera_pitch += input->getAxisValue(KeyType::CAMERA_PITCH_DOWN) * rate;
 
 	// Keyboard look
-	const f32 rate = m_cache_keyboard_camera_speed * dtime * sens_scale;
+	const f32 rate = dtime * sens_scale;
 
 	if (input->isKeyDown(KeyType::CAMERA_YAW_LEFT))
-		cam->camera_yaw += rate;
+		cam->camera_yaw += input->getAxisValue(KeyType::CAMERA_YAW_LEFT) * rate;
 	if (input->isKeyDown(KeyType::CAMERA_YAW_RIGHT))
-		cam->camera_yaw -= rate;
+		cam->camera_yaw -= input->getAxisValue(KeyType::CAMERA_YAW_RIGHT) * rate;
 	if (input->isKeyDown(KeyType::CAMERA_PITCH_UP))
-		cam->camera_pitch -= rate;
+		cam->camera_pitch -= input->getAxisValue(KeyType::CAMERA_PITCH_UP) * rate;
 	if (input->isKeyDown(KeyType::CAMERA_PITCH_DOWN))
-		cam->camera_pitch += rate;
+		cam->camera_pitch += input->getAxisValue(KeyType::CAMERA_PITCH_DOWN) * rate;
 
 	cam->camera_pitch = rangelim(cam->camera_pitch, -90, 90);
 }

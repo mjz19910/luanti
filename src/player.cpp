@@ -178,6 +178,10 @@ static u32 convert_direction_bit(float angle, float direction, int bit)
 u32 PlayerControl::getKeysPressed() const
 {
 	u32 keypress_bits =
+		( (u32)((up    > 0) & 1) << 0) |
+		( (u32)((down  > 0) & 1) << 1) |
+		( (u32)((left  > 0) & 1) << 2) |
+		( (u32)((right > 0) & 1) << 3) |
 		( (u32)(jump  & 1) << 4) |
 		( (u32)(aux1  & 1) << 5) |
 		( (u32)(sneak & 1) << 6) |
