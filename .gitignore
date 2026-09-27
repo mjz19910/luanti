@@ -152,3 +152,6 @@ tsconfig.json
 # deno ignore
 deno.json
 deno.lock
+
+# ignore vcpkg_installed
+vcpkg_installed
